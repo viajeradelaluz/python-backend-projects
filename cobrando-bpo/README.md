@@ -67,7 +67,7 @@ You will see the the messege that the two containers are running:
 
 To confirm that everything is working correctly, go to [http://127.0.0.1:1234/](http://127.0.0.1:1234/) in your browser. You should see the Cobrando BPO Test page.
 
-![Home page](/docs/home.png)
+![Home page](./docs/home.png)
 
 Before starting to use the application, it is necessary to load the data into the PostgreSQL database. To do this, run the following commands:
 
