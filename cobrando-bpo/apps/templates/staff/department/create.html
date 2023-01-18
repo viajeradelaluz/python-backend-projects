@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+  Nuevo departamento
+{% endblock title %}
+{% block content %}
+  <h1 class="title is-3">Nuevo departamento</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label" for="nombre">Nombre</label>
+      </div>
+      <div class="field-body">
+        <input class="input"
+               type="text"
+               name="nombre"
+               maxlength="100"
+               required
+               id="nombre"/>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label" for="presupuesto">Presupuesto</label>
+      </div>
+      <div class="field-body">
+        <input class="input"
+               type="text"
+               name="presupuesto"
+               maxlength="100"
+               required
+               id="presupuesto"/>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label"></div>
+      <div class="field-body">
+        <button class="button is-primary" type="submit">Guardar</button>
+      </div>
+    </div>
+  </form>
+{% endblock content %}

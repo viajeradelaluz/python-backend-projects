@@ -1,0 +1,7 @@
+# Django
+django
+django-environ
+djlint
+
+# PostgreSQL
+psycopg2-binary

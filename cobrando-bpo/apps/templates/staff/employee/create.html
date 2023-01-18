@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}
+  Nuevo empleado
+{% endblock title %}
+{% block content %}
+  <h1 class="title is-3">Nuevo empleado</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label" for="nit">Nit</label>
+      </div>
+      <div class="field-body">
+        <input class="input" type="text" name="nit" maxlength="9" required id="nit" />
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label" for="nombre">Nombre</label>
+      </div>
+      <div class="field-body">
+        <input class="input"
+               type="text"
+               name="nombre"
+               maxlength="100"
+               required
+               id="nombre"/>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label" for="apellido1">Primer apellido</label>
+      </div>
+      <div class="field-body">
+        <input class="input"
+               type="text"
+               name="apellido1"
+               maxlength="100"
+               required
+               id="apellido1"/>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label" for="apellido2">Segundo apellido</label>
+      </div>
+      <div class="field-body">
+        <input class="input"
+               type="text"
+               name="apellido2"
+               maxlength="100"
+               required
+               id="apellido2"/>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label" for="codigo_departamento">Departamento</label>
+      </div>
+      <div class="field-body">
+        <div class="select">
+          <select name="codigo_departamento" id="codigo_departamento">
+            {% for department in departments %}
+              <option value="{{ department.codigo }}">
+                {{ department.nombre }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label"></div>
+      <div class="field-body">
+        <button class="button is-primary" type="submit">Guardar</button>
+      </div>
+    </div>
+  </form>
+{% endblock content %}

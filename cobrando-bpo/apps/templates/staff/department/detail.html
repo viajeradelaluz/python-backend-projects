@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ department.nombre }}
+{% endblock title %}
+{% block content %}
+  <div class="card">
+    <div class="card-content">
+      <p class="title is-4">{{ department.nombre }}</p>
+      <p class="subtitle is-6">Presupuesto: {{ department.presupuesto }}</p>
+    </div>
+  </div>
+{% endblock content %}

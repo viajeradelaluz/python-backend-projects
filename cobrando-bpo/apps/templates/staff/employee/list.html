@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Lista de empleados
+{% endblock title %}
+{% block content %}
+  <p class="title is-3">Lista de empleados</p>
+  <div class="columns">
+    <div class="column is-3">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="{% static 'home/media/employees.jpg' %}"
+                 alt="Employees image"
+                 width="400"
+                 height="400"/>
+          </figure>
+        </div>
+        <div class="card-content">
+          <a href="{% url 'staff:employee_create' %}" class="button is-link">Nuevo empleado</a>
+        </div>
+      </div>
+    </div>
+    <div class="column is-4">
+      {% for employee in employees %}
+        <div class="card-content">
+          <div class="card-body">
+            <p class="title is-5">{{ employee.nombre }} {{ employee.apellido1 }} {{ employee.apellido2 }}</p>
+            <p class="subtitle is-6">
+              Documento: {{ employee.nit }}
+              <br />
+              Departamento: {{ employee.codigo_departamento }}
+            </p>
+            <a href="{{ employee.get_absolute_url }}" class="card-link">Detalle |</a>
+            <a href="{% url 'staff:employee_update' employee.codigo %}"
+               class="card-link">Editar |</a>
+            <a href="{% url 'staff:employee_delete' employee.codigo %}"
+               class="card-link">Eliminar</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Cobrando BPO Test
+{% endblock title %}
+{% block content %}
+  <div class="columns is-mobile">
+    <div class="column is-4">
+      <div class="card">
+        <a href="{% url 'staff:employee_list' %}">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="{% static 'home/media/employees.jpg' %}"
+                   alt="Employees image"
+                   width="400"
+                   height="400"/>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">Empleados</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="column is-4">
+      <div class="card">
+        <a href="{% url 'staff:department_list' %}">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="{% static 'home/media/departments.jpg' %}"
+                   alt="Departments image"
+                   width="200"
+                   height="200"/>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">Departamentos</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

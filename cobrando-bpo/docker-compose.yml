@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  backend:
+    build: .
+    ports:
+      - '1234:1234'
+    command: python manage.py runserver 0.0.0.0:1234
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+    ports:
+      - '5432:5432'
+
+volumes:
+  postgres_data:

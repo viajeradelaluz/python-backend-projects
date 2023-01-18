@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+  Borrar {{ department.nombre }}
+{% endblock title %}
+{% block content %}
+  <div class="card">
+    <div class="card-content">
+      <form method="post">
+        {% csrf_token %}
+        <p class="subtitle is-5">
+          Por favor, confirme la eliminación del departamento <b>{{ department.nombre }}</b>.
+        </p>
+        <input class="button is-danger" type="submit" value="Confirmar" />
+      </form>
+    </div>
+  </div>
+{% endblock content %}
